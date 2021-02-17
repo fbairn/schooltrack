@@ -1,0 +1,12 @@
+version: "3"
+services:
+  web:
+    build: .
+    links:
+      - "db:mongodb"
+    ports:
+      - "3200:5000"
+    environment:
+      - DBURL=mongodb://db
+  db:
+    image: "mongo:4.0.6"
